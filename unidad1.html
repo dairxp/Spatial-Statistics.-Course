@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primera Unidad - Portafolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">UNAP</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Página Principal</a></li>
+          <li><a href="sobre-mi.html">Sobre Mí</a></li>
+          <li><a href="presentacion.html">Presentación</a></li>
+          <li><a href="unidad1.html">Primera Unidad</a></li>
+          <li><a href="unidad2.html">Segunda Unidad</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="section">
+      <h2>Primera Unidad</h2>
+
+      <div class="contenedor-unidad">
+        <!-- Lista de Archivos - 50% -->
+        <div class="lista-archivos">
+          <h3>
+            En esta sección se presentarán las evidencias, prácticas y
+            materiales de la segunda unidad.
+          </h3>
+
+          <!-- CONTENEDOR DE TABLA CON SCROLL - NUEVO DIV AGREGADO -->
+          <div class="tabla-contenedor">
+            <table class="tabla-archivos">
+              <thead>
+                <tr>
+                  <th>Tarea</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Tarea 1: Posicionamiento de Información -->
+                <tr>
+                  <td><strong>1. Posicionamiento de Información</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <h4>Ver</h4>
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf', 'pdf')"
+                        >
+                          PDF_v1
+                        </button>
+
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('./1. Posicionamiento de Informacion/prueba_animales.pdf', 'pdf')"
+                        >
+                          PDF_v2
+                        </button>
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <h4>Descargar Código</h4>
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('./1. Posicionamiento de Informacion/prueba_animales.R')"
+                        >
+                          R_Animales
+                        </button>
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('./1. Posicionamiento de Informacion/prueba_rios.R')"
+                        >
+                          R_Rios
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Tarea 2: Análisis Exploratorio -->
+                <tr>
+                  <td><strong>2. mtcars_miBoostrap</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <!-- <h4>Ver</h4> -->
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <!-- <h4>Descargar Código</h4> -->
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('./2. mtcars_miBoostrap/mtcars_midBoostrap.R')"
+                        >
+                          R_Animales
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Tarea 3: Modelado Estadístico -->
+                <tr>
+                  <td><strong>3. CampoGausianos</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <!-- <h4>Ver</h4> -->
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('./3. CampoGausianos/CampoGausiano_animales.pdf', 'pdf')"
+                        >
+                          PDF
+                        </button>
+
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('./3. CampoGausianos/CampoGausiano_animales.html', 'pdf')"
+                        >
+                          Html_v1
+                        </button>
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <!-- <h4>Descargar Código</h4> -->
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('./3. CampoGausianos/CampoGausiano_animales.R')"
+                        >
+                          R
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Tarea 4: Proyecto Integrador -->
+
+                <!-- Tarea 5: Análisis Temporal -->
+
+                <!-- FINALLLL -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Visor de Archivos - 50% -->
+        <div class="visor-archivos">
+          <div class="visor-placeholder" id="placeholder">
+            <div>
+              <h3 style="color: #0a2a43; margin-bottom: 10px">
+                📁 Visor de Archivos
+              </h3>
+              <p>Selecciona un archivo para visualizarlo</p>
+              <small style="color: #666">Visualiza: PDF y HTML solamente</small>
+            </div>
+          </div>
+          <iframe id="visor"></iframe>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        © 2025 Aldair M. - Universidad Nacional del Altiplano |
+        <a href="https://github.com/dairxp" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="GitHub"
+          />
+        </a>
+      </p>
+    </footer>
+
+    <script>
+      // Variables globales
+      const visor = document.getElementById("visor");
+      const placeholder = document.getElementById("placeholder");
+
+      // Función para visualizar archivos (solo PDF y HTML)
+      function verArchivo(ruta, tipo) {
+        if (tipo === "pdf" || tipo === "html") {
+          // Ocultar placeholder y mostrar visor
+          placeholder.style.display = "none";
+          visor.style.display = "block";
+          visor.src = ruta;
+        } else {
+          alert("Solo se pueden visualizar archivos PDF y HTML");
+        }
+      }
+
+      // Función para descargar archivos de código
+      function descargarArchivo(ruta) {
+        // Crear enlace temporal para descarga
+        const link = document.createElement("a");
+        link.href = ruta;
+        link.download = ruta.split("/").pop();
+        link.target = "_blank";
+
+        // Simular click para iniciar descarga
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Mostrar mensaje de confirmación
+        const nombreArchivo = ruta.split("/").pop();
+        showNotification(`⬇️ Descargando: ${nombreArchivo}`);
+      }
+
+      // Mostrar notificación temporal
+      function showNotification(mensaje) {
+        // Crear elemento de notificación
+        const notification = document.createElement("div");
+        notification.textContent = mensaje;
+        notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #0a2a43;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                z-index: 9999;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+
+        // Agregar animación CSS
+        const style = document.createElement("style");
+        style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+        document.head.appendChild(style);
+
+        // Mostrar notificación
+        document.body.appendChild(notification);
+
+        // Remover después de 3 segundos
+        setTimeout(() => {
+          notification.style.animation = "slideOut 0.3s ease";
+          setTimeout(() => {
+            if (document.body.contains(notification)) {
+              document.body.removeChild(notification);
+            }
+          }, 300);
+        }, 3000);
+      }
+
+      // Funciones de compatibilidad
+      function verPDF(ruta) {
+        verArchivo(ruta, "pdf");
+      }
+
+      function verCodigo(ruta) {
+        descargarArchivo(ruta);
+      }
+
+      // Menú móvil
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("nav-links").classList.toggle("show");
+        });
+
+      // Cerrar menú en móvil
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("nav-links").classList.remove("show");
+        });
+      });
+    </script>
+  </body>
+</html>
