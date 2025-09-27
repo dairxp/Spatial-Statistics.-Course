@@ -46,6 +46,26 @@
       </p>
     </footer>
 
+    <script>
+      // Menú hamburguesa - Script básico
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+          navLinks.classList.toggle("show");
+        });
+
+        // Cerrar menú al hacer clic en enlaces
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("show");
+          });
+        });
+      }
+    </script>
+
+    <!-- Archivo externo -->
     <script src="js/scripts.js"></script>
   </body>
 </html>

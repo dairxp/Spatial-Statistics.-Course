@@ -13,10 +13,11 @@
         <div class="logo">UNAP</div>
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
         <ul class="nav-links" id="nav-links">
+          >
           <li><a href="index.html">Página Principal</a></li>
           <li><a href="sobre-mi.html">Sobre Mí</a></li>
           <li><a href="presentacion.html">Presentación</a></li>
-          <li><a href="unidad1.html">Primera Unidad</a></li>
+          <li><a href="unidad1.html" class="active">Primera Unidad</a></li>
           <li><a href="unidad2.html">Segunda Unidad</a></li>
         </ul>
       </nav>
@@ -57,6 +58,27 @@
       </p>
     </footer>
 
+    <script>
+      // Menú hamburguesa - Script básico
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+          navLinks.classList.toggle("show");
+        });
+
+        // Cerrar menú al hacer clic en enlaces
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("show");
+          });
+        });
+      }
+    </script>
+
+    <!-- Archivo externo -->
     <script src="js/scripts.js"></script>
+  </body>
   </body>
 </html>
