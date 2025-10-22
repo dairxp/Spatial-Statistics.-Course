@@ -72,17 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // ====================================
 function verArchivo(ruta, tipo) {
   if (tipo === "pdf" || tipo === "html") {
-    // Ocultar placeholder y mostrar visor
     placeholder.style.display = "none";
     visor.style.display = "block";
-    visor.src = ruta;
 
-    // Guardar PDF actual y mostrar botón pantalla completa
+    if (tipo === "pdf") {
+      // MEJOR: Usar pagemode=none para Firefox
+      visor.src = ruta + "#pagemode=none&toolbar=1";
+    } else {
+      visor.src = ruta;
+    }
+
     pdfActual = ruta;
     visorContainer.classList.add("con-pdf");
     btnFullscreen.style.display = "block";
-  } else {
-    alert("Solo se pueden visualizar archivos PDF y HTML");
   }
 }
 
