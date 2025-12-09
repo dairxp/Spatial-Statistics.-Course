@@ -112,7 +112,7 @@ function verArchivo(ruta, tipo) {
 // PANTALLA COMPLETA
 // ====================================
 function abrirPantallaCompleta() {
-  if (pdfActual) {
+  if (modalFullscreen && modalIframe && pdfActual) {
     modalIframe.src = pdfActual;
     modalFullscreen.style.display = "block";
     document.body.style.overflow = "hidden";
@@ -120,24 +120,32 @@ function abrirPantallaCompleta() {
 }
 
 function cerrarPantallaCompleta() {
-  modalFullscreen.style.display = "none";
-  modalIframe.src = "";
-  document.body.style.overflow = "auto";
+  if (modalFullscreen && modalIframe) {
+    modalFullscreen.style.display = "none";
+    modalIframe.src = "";
+    document.body.style.overflow = "auto";
+  }
 }
 
 // Cerrar modal con tecla ESC
 document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && modalFullscreen.style.display === "block") {
+  if (
+    modalFullscreen &&
+    e.key === "Escape" &&
+    modalFullscreen.style.display === "block"
+  ) {
     cerrarPantallaCompleta();
   }
 });
 
 // Cerrar modal haciendo clic en el fondo
-modalFullscreen.addEventListener("click", function (e) {
-  if (e.target === modalFullscreen) {
-    cerrarPantallaCompleta();
-  }
-});
+if (modalFullscreen) {
+  modalFullscreen.addEventListener("click", function (e) {
+    if (e.target === modalFullscreen) {
+      cerrarPantallaCompleta();
+    }
+  });
+}
 
 // ====================================
 // DESCARGA DE ARCHIVOS R

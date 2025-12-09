@@ -153,24 +153,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-      // Menú hamburguesa
-      const menuToggle = document.getElementById("menu-toggle");
-      const navLinks = document.getElementById("nav-links");
-
-      if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", function () {
-          navLinks.classList.toggle("show");
-        });
-
-        // Cerrar menú al hacer clic en enlaces
-        navLinks.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            navLinks.classList.remove("show");
-          });
-        });
-      }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="js/boti.widget.js"></script>
     <script>
