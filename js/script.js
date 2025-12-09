@@ -20,6 +20,12 @@ const navLinks = document.getElementById("nav-links");
 if (menuToggle) {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("show");
+    // Cambiar icono del menú
+    if (navLinks.classList.contains("show")) {
+      menuToggle.innerHTML = "✕";
+    } else {
+      menuToggle.innerHTML = "&#9776;";
+    }
   });
 }
 
@@ -27,7 +33,21 @@ if (menuToggle) {
 document.querySelectorAll(".nav-links a").forEach((link) => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("show");
+    menuToggle.innerHTML = "&#9776;";
   });
+});
+
+// Cerrar menú al hacer clic fuera de él
+document.addEventListener("click", (e) => {
+  if (
+    menuToggle &&
+    navLinks &&
+    !menuToggle.contains(e.target) &&
+    !navLinks.contains(e.target)
+  ) {
+    navLinks.classList.remove("show");
+    menuToggle.innerHTML = "&#9776;";
+  }
 });
 
 // ====================================

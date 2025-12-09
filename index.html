@@ -3,56 +3,144 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Principal - Portafolio</title>
-    <link rel="icon" type="image/svg+xml" href="img/linux.svg" />
+    <title>Portafolio - Estadística Espacial</title>
+    <meta
+      name="description"
+      content="Portafolio de Estadística Espacial - Aldair Maquera"
+    />
+
+    <!-- Prefetch -->
+    <link rel="prefetch" href="unidad1.html" as="document" />
+
+    <!-- Preload -->
+    <link rel="preload" href="css/normalize.css" as="style" />
     <link rel="stylesheet" href="css/normalize.css" />
+
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+      crossorigin="crossorigin"
+      as="font"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preload" href="css/style.css" as="style" />
     <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="icon" type="image/svg+xml" href="img/linux.svg" />
   </head>
   <body>
-    <!-- Navbar -->
-    <header>
-      <nav class="navbar">
-        <div class="logo">UNAP</div>
-        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Página Principal</a></li>
-          <li><a href="sobre-mi.html">Sobre Mí</a></li>
-          <li><a href="presentacion.html">Presentación</a></li>
-          <li><a href="unidad1.html">Primera Unidad</a></li>
-          <li><a href="unidad2.html">Segunda Unidad</a></li>
-        </ul>
-      </nav>
+    <header class="header">
+      <div class="contenedor">
+        <div class="barra">
+          <a class="logo" href="#inicio">
+            <h1 class="logo__nombre no-margin centrar-texto">
+              UNAP<span class="logo__bold">Portafolio</span>
+            </h1>
+          </a>
+
+          <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+          <nav class="navegacion">
+            <ul class="nav-links" id="nav-links">
+              <li><a href="#inicio" class="navegacion__enlace">Inicio</a></li>
+              <li>
+                <a href="unidad1.html" class="navegacion__enlace"
+                  >Primera Unidad</a
+                >
+              </li>
+              <li>
+                <a href="unidad2.html" class="navegacion__enlace"
+                  >Segunda Unidad</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="header__texto">
+        <h2 class="no-margin">Portafolio de Estadística Espacial</h2>
+        <p class="no-margin">
+          Documentando archivos del curso, evidencias y materiales de trabajo
+        </p>
+      </div>
     </header>
 
-    <!-- Contenido -->
-    <main class="section">
-      <h1 class="hero-title">Portafolio</h1>
-      <h2 class="hero-subtitle">Estadística Espacial</h2>
-      <p class="hero-text">
-        Este portafolio tiene como objetivo documentar todos los archivos del
-        curso como material de trabajo, evidencias de curso, entre otros
-        materiales.
-      </p>
+    <div class="contenedor contenido-principal">
+      <main class="blog">
+        <section id="sobre-mi" class="sobre-nosotros">
+          <h3>Sobre Mí</h3>
+          <div class="sobre-mi-container">
+            <img class="perfil-img" src="img/imagen.jpg" alt="Foto de Aldair" />
+            <div class="sobre-mi-texto">
+              <p>
+                Mi nombre es <strong>Aldair José Maquera Andrade</strong>, tengo
+                21 años y actualmente estudio en la Universidad Nacional del
+                Altiplano la carrera de
+                <strong>Ingeniería Estadística e Informática</strong>.
+              </p>
+              <p>
+                Me considero una persona alegre, soñadora con ganas de salir
+                adelante y por ello mismo escogí esta carrera. Mi propósito es
+                vivir la vida haciendo lo que a uno le guste.
+              </p>
+            </div>
+          </div>
+        </section>
 
-      <p class="hero-text" style="margin-bottom: 20px; text-align: left">
-        <em>Presentado por: Aldair Maquera</em>
-      </p>
+        <section id="presentacion" class="presentacion">
+          <h3>Presentación del Curso</h3>
+          <p>
+            El curso de <strong>Estadística Espacial</strong> tiene como
+            propósito desarrollar competencias en el análisis y modelamiento de
+            datos espaciales, aplicando técnicas estadísticas avanzadas para la
+            interpretación de fenómenos en diferentes contextos.
+          </p>
+          <p>
+            Se busca fomentar el pensamiento crítico, la investigación y la
+            capacidad de aplicar herramientas estadísticas para la resolución de
+            problemas reales.
+          </p>
+          <p class="hero-text" style="margin-bottom: 20px; text-align: left">
+            <em>Presentado por: Aldair Maquera</em>
+          </p>
+          <p class="hero-text" style="text-align: left">
+            <em>Orientador: Ing. Fred Torres Cruz</em>
+          </p>
+        </section>
+      </main>
+    </div>
 
-      <p class="hero-text" style="text-align: left">
-        <em>Orientador: Ing. Fred Torres Cruz</em>
-      </p>
+    <footer class="footer">
+      <div class="contenedor">
+        <div class="barra">
+          <a class="logo" href="#inicio">
+            <h1 class="logo__nombre no-margin centrar-texto">
+              Dair<span class="logo__bold">XP</span>
+            </h1>
+          </a>
 
-      <p class="hero-text" style="text-align: right">
-        <strong
-          >Sin más que decir, muchas gracias por visitar mi Portafolio
-          Digital.</strong
-        >
-      </p>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <p>
+          <nav class="navegacion">
+            <ul class="nav-links">
+              <li><a href="#inicio" class="navegacion__enlace">Inicio</a></li>
+              <li>
+                <a href="unidad1.html" class="navegacion__enlace"
+                  >Primera Unidad</a
+                >
+              </li>
+              <li>
+                <a href="unidad2.html" class="navegacion__enlace"
+                  >Segunda Unidad</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <p class="footer__texto">
         © 2025 Aldair M. - Universidad Nacional del Altiplano |
         <a href="https://github.com/dairxp" target="_blank">
           <img
@@ -64,8 +152,9 @@
       </p>
     </footer>
 
+    <script src="js/script.js"></script>
     <script>
-      // Menú hamburguesa - Script básico
+      // Menú hamburguesa
       const menuToggle = document.getElementById("menu-toggle");
       const navLinks = document.getElementById("nav-links");
 
@@ -82,8 +171,5 @@
         });
       }
     </script>
-
-    <!-- Archivo externo -->
-    <script src="js/script.js"></script>
   </body>
 </html>

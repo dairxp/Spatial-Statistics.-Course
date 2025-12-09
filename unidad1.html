@@ -9,32 +9,55 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Navbar -->
-    <header>
-      <nav class="navbar">
-        <div class="logo">UNAP</div>
-        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Página Principal</a></li>
-          <li><a href="sobre-mi.html">Sobre Mí</a></li>
-          <li><a href="presentacion.html">Presentación</a></li>
-          <li><a href="unidad1.html">Primera Unidad</a></li>
-          <li><a href="unidad2.html">Segunda Unidad</a></li>
-        </ul>
-      </nav>
+    <header class="header unidad1">
+      <div class="contenedor">
+        <div class="barra">
+          <a class="logo" href="index.html">
+            <h1 class="logo__nombre no-margin centrar-texto">
+              UNAP<span class="logo__bold">Portafolio</span>
+            </h1>
+          </a>
+
+          <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+          <nav class="navegacion">
+            <ul class="nav-links" id="nav-links">
+              <li>
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+              </li>
+              <li>
+                <a href="unidad1.html" class="navegacion__enlace"
+                  >Primera Unidad</a
+                >
+              </li>
+              <li>
+                <a href="unidad2.html" class="navegacion__enlace"
+                  >Segunda Unidad</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="header__texto">
+        <h2 class="no-margin">Primera Unidad</h2>
+        <p class="no-margin">
+          En esta sección se presentarán las tareas y materiales de la primera
+          unidad.
+        </p>
+      </div>
     </header>
 
     <!-- Contenido Principal -->
-    <main class="section">
-      <h2>Primera Unidad</h2>
-
+    <main class="contenedor">
       <div class="contenedor-unidad">
         <!-- Lista de Archivos - 50% -->
         <div class="lista-archivos">
-          <h3>
+          <h3 class="titulo-seccion">Tareas y Materiales</h3>
+          <p class="descripcion-seccion">
             En esta sección se presentarán las tareas y materiales de la primera
             unidad.
-          </h3>
+          </p>
 
           <!-- CONTENEDOR DE TABLA CON SCROLL -->
           <div class="tabla-contenedor">
@@ -350,13 +373,41 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-      <p>
+    <footer class="footer">
+      <div class="contenedor">
+        <div class="barra">
+          <a class="logo" href="index.html">
+            <h1 class="logo__nombre no-margin centrar-texto">
+              Dair<span class="logo__bold">XP</span>
+            </h1>
+          </a>
+
+          <nav class="navegacion">
+            <ul class="nav-links">
+              <li>
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+              </li>
+              <li>
+                <a href="unidad1.html" class="navegacion__enlace"
+                  >Primera Unidad</a
+                >
+              </li>
+              <li>
+                <a href="unidad2.html" class="navegacion__enlace"
+                  >Segunda Unidad</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <p class="footer__texto">
         © 2025 Aldair M. - Universidad Nacional del Altiplano |
         <a href="https://github.com/dairxp" target="_blank">
           <img
             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
             alt="GitHub"
+            style="width: 24px; height: 24px; filter: invert(1)"
           />
         </a>
       </p>

@@ -321,6 +321,43 @@
     </style>
   </head>
   <body>
+    <header class="header">
+      <div class="contenedor">
+        <div class="barra">
+          <a class="logo" href="index.html">
+            <h1 class="logo__nombre no-margin centrar-texto">
+              UNAP<span class="logo__bold">Portafolio</span>
+            </h1>
+          </a>
+
+          <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+          <nav class="navegacion">
+            <ul class="nav-links" id="nav-links">
+              <li>
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+              </li>
+              <li>
+                <a href="unidad1.html" class="navegacion__enlace"
+                  >Primera Unidad</a
+                >
+              </li>
+              <li>
+                <a href="unidad2.html" class="navegacion__enlace"
+                  >Segunda Unidad</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="header__texto">
+        <h2 class="no-margin">Página No Encontrada</h2>
+        <p class="no-margin">
+          La ruta que buscas no existe. Regresa al inicio.
+        </p>
+      </div>
+    </header>
     <div class="container">
       <!-- HEADER -->
       <div class="header">
@@ -515,6 +552,25 @@
     </div>
 
     <script>
+      // Menú hamburguesa
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+          navLinks.classList.toggle("show");
+        });
+
+        // Cerrar menú al hacer clic en enlaces
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("show");
+          });
+        });
+      }
+    </script>
+
+    <script>
       let pdfActual =
         "./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf";
 
@@ -592,5 +648,46 @@
         document.getElementById("pdfjs-viewer").src = pdfJSUrl;
       });
     </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="contenedor">
+        <div class="barra">
+          <a class="logo" href="index.html">
+            <h1 class="logo__nombre no-margin centrar-texto">
+              Dair<span class="logo__bold">XP</span>
+            </h1>
+          </a>
+
+          <nav class="navegacion">
+            <ul class="nav-links">
+              <li>
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+              </li>
+              <li>
+                <a href="unidad1.html" class="navegacion__enlace"
+                  >Primera Unidad</a
+                >
+              </li>
+              <li>
+                <a href="unidad2.html" class="navegacion__enlace"
+                  >Segunda Unidad</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <p class="footer__texto">
+        © 2025 Aldair M. - Universidad Nacional del Altiplano |
+        <a href="https://github.com/dairxp" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="GitHub"
+            style="width: 24px; height: 24px; filter: invert(1)"
+          />
+        </a>
+      </p>
+    </footer>
   </body>
 </html>
