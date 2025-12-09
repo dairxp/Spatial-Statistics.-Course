@@ -3,322 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comparador de Visualizadores PDF</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
+    <title>Página No Encontrada - Portafolio Estadística Espacial</title>
+    <meta
+      name="description"
+      content="Página no encontrada - Portafolio de Estadística Espacial - Aldair Maquera"
+    />
 
-      body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 20px;
-      }
+    <!-- Prefetch -->
+    <link rel="prefetch" href="index.html" as="document" />
 
-      .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-      }
+    <!-- Preload -->
+    <link rel="preload" href="css/normalize.css" as="style" />
+    <link rel="stylesheet" href="css/normalize.css" />
 
-      .header {
-        background: linear-gradient(135deg, #0a2a43, #1a3a53);
-        color: white;
-        padding: 30px;
-        text-align: center;
-      }
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+      crossorigin="crossorigin"
+      as="font"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-      .header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-        font-weight: 700;
-      }
+    <link rel="preload" href="css/style.css" as="style" />
+    <link rel="stylesheet" href="css/style.css" />
 
-      .header p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-      }
-
-      .content {
-        padding: 30px;
-      }
-
-      .pdf-selector {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 15px;
-        margin-bottom: 30px;
-        border: 2px solid #e9ecef;
-      }
-
-      .pdf-selector h3 {
-        color: #0a2a43;
-        margin-bottom: 15px;
-        font-size: 1.4rem;
-      }
-
-      .pdf-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-
-      .pdf-btn {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        font-size: 0.95rem;
-      }
-
-      .pdf-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-      }
-
-      .pdf-btn.active {
-        background: linear-gradient(135deg, #0a2a43, #1a3a53);
-        box-shadow: 0 8px 25px rgba(10, 42, 67, 0.3);
-      }
-
-      .viewers-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        margin-bottom: 30px;
-      }
-
-      .viewer-card {
-        background: #fff;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        border: 3px solid #f1f3f4;
-        transition: all 0.3s ease;
-      }
-
-      .viewer-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .viewer-header {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        padding: 20px;
-        text-align: center;
-      }
-
-      .viewer-header h3 {
-        font-size: 1.3rem;
-        margin-bottom: 8px;
-      }
-
-      .viewer-header p {
-        font-size: 0.9rem;
-        opacity: 0.9;
-      }
-
-      .viewer-content {
-        height: 500px;
-        position: relative;
-        background: #f8f9fa;
-      }
-
-      .viewer-iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        background: white;
-      }
-
-      .viewer-placeholder {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        color: #666;
-        font-size: 1.1rem;
-        text-align: center;
-        padding: 20px;
-        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      }
-
-      /* OPCIONES DE PANTALLA COMPLETA */
-      .fullscreen-options {
-        background: #fff3cd;
-        border: 2px solid #ffeaa7;
-        border-radius: 15px;
-        padding: 25px;
-        margin-bottom: 30px;
-      }
-
-      .fullscreen-options h3 {
-        color: #856404;
-        margin-bottom: 20px;
-        font-size: 1.4rem;
-        text-align: center;
-      }
-
-      .fullscreen-buttons {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-
-      .fullscreen-btn {
-        background: linear-gradient(135deg, #f39c12, #e67e22);
-        color: white;
-        border: none;
-        padding: 15px 25px;
-        border-radius: 30px;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .fullscreen-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
-      }
-
-      /* MODAL PANTALLA COMPLETA */
-      .modal-fullscreen {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 10000;
-      }
-
-      .modal-content {
-        width: 100%;
-        height: 100%;
-        position: relative;
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: #e74c3c;
-        color: white;
-        border: none;
-        padding: 15px 20px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.2rem;
-        font-weight: bold;
-        z-index: 10001;
-        transition: all 0.3s ease;
-      }
-
-      .modal-close:hover {
-        background: #c0392b;
-        transform: scale(1.1);
-      }
-
-      .modal-iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        background: white;
-      }
-
-      /* COMPARACIÓN DE CARACTERÍSTICAS */
-      .comparison-table {
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-top: 30px;
-      }
-
-      .comparison-table h3 {
-        background: linear-gradient(135deg, #0a2a43, #1a3a53);
-        color: white;
-        padding: 20px;
-        text-align: center;
-        margin: 0;
-        font-size: 1.4rem;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      th,
-      td {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-      }
-
-      th {
-        background: #f8f9fa;
-        font-weight: 700;
-        color: #0a2a43;
-      }
-
-      .pro {
-        color: #27ae60;
-        font-weight: bold;
-      }
-
-      .con {
-        color: #e74c3c;
-        font-weight: bold;
-      }
-
-      .neutral {
-        color: #f39c12;
-        font-weight: bold;
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 768px) {
-        .viewers-grid {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-
-        .pdf-buttons,
-        .fullscreen-buttons {
-          justify-content: center;
-        }
-
-        .viewer-content {
-          height: 400px;
-        }
-
-        .header h1 {
-          font-size: 2rem;
-        }
-
-        .header p {
-          font-size: 1rem;
-        }
-      }
-    </style>
+    <link rel="icon" type="image/svg+xml" href="img/linux.svg" />
   </head>
   <body>
     <header class="header">
@@ -356,201 +68,26 @@
         <p class="no-margin">
           La ruta que buscas no existe. Regresa al inicio.
         </p>
+        <a href="index.html" class="btn btn-primario">Ir al Inicio</a>
       </div>
     </header>
-    <div class="container">
-      <!-- HEADER -->
-      <div class="header">
-        <h1>🔍 Comparador de Visualizadores PDF</h1>
-        <p>Prueba diferentes métodos para mostrar tus PDFs</p>
-      </div>
 
-      <div class="content">
-        <!-- SELECTOR DE PDF -->
-        <div class="pdf-selector">
-          <h3>📁 Selecciona un PDF para probar:</h3>
-          <div class="pdf-buttons">
-            <button
-              class="pdf-btn active"
-              onclick="cambiarPDF('./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf')"
-            >
-              PDF Tarea 1
-            </button>
-            <button
-              class="pdf-btn"
-              onclick="cambiarPDF('./1. Posicionamiento de Informacion/prueba_animales.pdf')"
-            >
-              PDF Animales
-            </button>
-            <button
-              class="pdf-btn"
-              onclick="cambiarPDF('./3. CampoGausianos/CampoGausiano_animales.pdf')"
-            >
-              PDF Gaussianos
-            </button>
-          </div>
+    <main class="contenedor">
+      <section class="error-404">
+        <div class="error-contenido">
+          <h2>404</h2>
+          <h3>Página No Encontrada</h3>
+          <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
+          <p>
+            Puedes regresar a la página principal haciendo clic en el botón de
+            arriba o en el enlace a continuación.
+          </p>
+          <a href="index.html" class="btn btn-secundario">Volver al Inicio</a>
         </div>
+      </section>
+    </main>
 
-        <!-- OPCIONES DE PANTALLA COMPLETA -->
-        <div class="fullscreen-options">
-          <h3>🖥️ Opciones para Ver en Pantalla Completa</h3>
-          <div class="fullscreen-buttons">
-            <button class="fullscreen-btn" onclick="abrirNuevaPestana()">
-              🔗 Abrir en Nueva Pestaña
-            </button>
-            <button class="fullscreen-btn" onclick="abrirModal()">
-              📱 Modal Pantalla Completa
-            </button>
-            <button class="fullscreen-btn" onclick="descargarPDF()">
-              💾 Descargar PDF
-            </button>
-          </div>
-        </div>
-
-        <!-- COMPARACIÓN DE VISORES -->
-        <div class="viewers-grid">
-          <!-- IFRAME BÁSICO (TU MÉTODO ACTUAL) -->
-          <div class="viewer-card">
-            <div class="viewer-header">
-              <h3>🔸 Iframe Básico</h3>
-              <p>Tu método actual - Simple y directo</p>
-            </div>
-            <div class="viewer-content">
-              <iframe
-                id="iframe-basico"
-                class="viewer-iframe"
-                src="./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf"
-              ></iframe>
-            </div>
-          </div>
-
-          <!-- EMBED TAG -->
-          <div class="viewer-card">
-            <div class="viewer-header">
-              <h3>🔹 Embed Tag</h3>
-              <p>Alternativa al iframe con más controles</p>
-            </div>
-            <div class="viewer-content">
-              <embed
-                id="embed-viewer"
-                class="viewer-iframe"
-                src="./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf"
-                type="application/pdf"
-              />
-            </div>
-          </div>
-
-          <!-- OBJECT TAG -->
-          <div class="viewer-card">
-            <div class="viewer-header">
-              <h3>🔶 Object Tag</h3>
-              <p>Método robusto con fallback</p>
-            </div>
-            <div class="viewer-content">
-              <object
-                id="object-viewer"
-                class="viewer-iframe"
-                data="./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf"
-                type="application/pdf"
-              >
-                <p>
-                  Tu navegador no puede mostrar PDFs.
-                  <a
-                    href="./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf"
-                    target="_blank"
-                    >Haz clic aquí para descargarlo</a
-                  >
-                </p>
-              </object>
-            </div>
-          </div>
-
-          <!-- PDF.JS BÁSICO -->
-          <div class="viewer-card">
-            <div class="viewer-header">
-              <h3>🔥 PDF.js (CDN)</h3>
-              <p>Visualizador profesional de Mozilla</p>
-            </div>
-            <div class="viewer-content">
-              <iframe
-                id="pdfjs-viewer"
-                class="viewer-iframe"
-                src="https://mozilla.github.io/pdf.js/web/viewer.html?file="
-              ></iframe>
-            </div>
-          </div>
-        </div>
-
-        <!-- TABLA DE COMPARACIÓN -->
-        <div class="comparison-table">
-          <h3>📊 Comparación de Características</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Característica</th>
-                <th>Iframe Básico</th>
-                <th>Embed Tag</th>
-                <th>Object Tag</th>
-                <th>PDF.js</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Facilidad de implementación</strong></td>
-                <td class="pro">✅ Muy fácil</td>
-                <td class="pro">✅ Muy fácil</td>
-                <td class="neutral">⚡ Fácil</td>
-                <td class="con">❌ Requiere configuración</td>
-              </tr>
-              <tr>
-                <td><strong>Controles de navegación</strong></td>
-                <td class="neutral">⚡ Básicos del navegador</td>
-                <td class="neutral">⚡ Básicos del navegador</td>
-                <td class="neutral">⚡ Básicos del navegador</td>
-                <td class="pro">✅ Completos y customizables</td>
-              </tr>
-              <tr>
-                <td><strong>Compatibilidad navegadores</strong></td>
-                <td class="pro">✅ Excelente</td>
-                <td class="pro">✅ Excelente</td>
-                <td class="pro">✅ Excelente</td>
-                <td class="pro">✅ Excelente</td>
-              </tr>
-              <tr>
-                <td><strong>Personalización UI</strong></td>
-                <td class="con">❌ Ninguna</td>
-                <td class="con">❌ Ninguna</td>
-                <td class="con">❌ Ninguna</td>
-                <td class="pro">✅ Completa</td>
-              </tr>
-              <tr>
-                <td><strong>Velocidad de carga</strong></td>
-                <td class="pro">✅ Muy rápida</td>
-                <td class="pro">✅ Muy rápida</td>
-                <td class="pro">✅ Muy rápida</td>
-                <td class="neutral">⚡ Buena (más pesada)</td>
-              </tr>
-              <tr>
-                <td><strong>Funciona sin internet</strong></td>
-                <td class="pro">✅ Sí</td>
-                <td class="pro">✅ Sí</td>
-                <td class="pro">✅ Sí</td>
-                <td class="con">❌ Requiere CDN o local</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL PANTALLA COMPLETA -->
-    <div id="modal-fullscreen" class="modal-fullscreen">
-      <div class="modal-content">
-        <button class="modal-close" onclick="cerrarModal()">✕</button>
-        <iframe id="modal-iframe" class="modal-iframe" src=""></iframe>
-      </div>
-    </div>
-
+    <script src="js/script.js"></script>
     <script>
       // Menú hamburguesa
       const menuToggle = document.getElementById("menu-toggle");
@@ -568,85 +105,6 @@
           });
         });
       }
-    </script>
-
-    <script>
-      let pdfActual =
-        "./1. Posicionamiento de Informacion/01. Est_Esp_Tarea1.pdf";
-
-      // Cambiar PDF en todos los visores
-      function cambiarPDF(rutaPDF) {
-        pdfActual = rutaPDF;
-
-        // Actualizar todos los botones
-        document
-          .querySelectorAll(".pdf-btn")
-          .forEach((btn) => btn.classList.remove("active"));
-        event.target.classList.add("active");
-
-        // Actualizar iframe básico
-        document.getElementById("iframe-basico").src = rutaPDF;
-
-        // Actualizar embed
-        document.getElementById("embed-viewer").src = rutaPDF;
-
-        // Actualizar object
-        document.getElementById("object-viewer").data = rutaPDF;
-
-        // Actualizar PDF.js (usando proxy para CORS)
-        const pdfJSUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(
-          window.location.origin + "/" + rutaPDF
-        )}`;
-        document.getElementById("pdfjs-viewer").src = pdfJSUrl;
-
-        console.log("PDF cambiado a:", rutaPDF);
-      }
-
-      // Abrir en nueva pestaña
-      function abrirNuevaPestana() {
-        window.open(pdfActual, "_blank");
-      }
-
-      // Abrir modal pantalla completa
-      function abrirModal() {
-        document.getElementById("modal-iframe").src = pdfActual;
-        document.getElementById("modal-fullscreen").style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-
-      // Cerrar modal
-      function cerrarModal() {
-        document.getElementById("modal-fullscreen").style.display = "none";
-        document.getElementById("modal-iframe").src = "";
-        document.body.style.overflow = "auto";
-      }
-
-      // Descargar PDF
-      function descargarPDF() {
-        const link = document.createElement("a");
-        link.href = pdfActual;
-        link.download = pdfActual.split("/").pop();
-        link.target = "_blank";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-
-      // Cerrar modal con ESC
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          cerrarModal();
-        }
-      });
-
-      // Inicializar PDF.js al cargar
-      document.addEventListener("DOMContentLoaded", function () {
-        // Configurar PDF.js con el PDF inicial
-        const pdfJSUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(
-          window.location.origin + "/" + pdfActual
-        )}`;
-        document.getElementById("pdfjs-viewer").src = pdfJSUrl;
-      });
     </script>
 
     <!-- Footer -->
