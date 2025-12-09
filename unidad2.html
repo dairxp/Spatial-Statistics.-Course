@@ -48,18 +48,183 @@
       </div>
     </header>
 
-    <!-- Contenido -->
-    <div class="contenedor contenido-principal">
-      <main class="blog">
-        <section class="sobre-nosotros">
-          <h3>Segunda Unidad</h3>
-          <p>
-            En esta sección se presentarán las evidencias, prácticas y
-            materiales de la segunda unidad.
+    <!-- Contenido Principal -->
+    <main class="contenedor">
+      <div class="contenedor-unidad">
+        <!-- Lista de Archivos - 50% -->
+        <div class="lista-archivos">
+          <h3 class="titulo-seccion">Tareas y Materiales</h3>
+          <p class="descripcion-seccion">
+            En esta sección se presentarán las tareas y materiales de la segunda
+            unidad.
           </p>
-          <!-- Aquí luego podrás agregar tablas -->
-        </section>
-      </main>
+
+          <!-- CONTENEDOR DE TABLA CON SCROLL -->
+          <div class="tabla-contenedor">
+            <table class="tabla-archivos">
+              <thead>
+                <tr>
+                  <th>Tarea</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Tarea 1 -->
+                <tr>
+                  <td><strong>1. Tarea 1 Unidad 2</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <h4>Ver</h4>
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('#', 'pdf')"
+                        >
+                          PDF
+                        </button>
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <h4>Descargar Código</h4>
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('#')"
+                        >
+                          R
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Tarea 2 -->
+                <tr>
+                  <td><strong>2. Tarea 2 Unidad 2</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('#', 'pdf')"
+                        >
+                          PDF
+                        </button>
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('#')"
+                        >
+                          R
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Tarea 3 -->
+                <tr>
+                  <td><strong>3. Tarea 3 Unidad 2</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('#', 'pdf')"
+                        >
+                          PDF
+                        </button>
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('#')"
+                        >
+                          R
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Tarea 4 -->
+                <tr>
+                  <td><strong>4. Tarea 4 Unidad 2</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('#', 'pdf')"
+                        >
+                          PDF
+                        </button>
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <button
+                          class="btn-code"
+                          onclick="descargarArchivo('#')"
+                        >
+                          R
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Visor de Archivos - 50% CON BOTÓN PANTALLA COMPLETA -->
+        <div class="visor-archivos" id="visor-container">
+          <!-- BOTÓN PANTALLA COMPLETA FLOTANTE - NUEVO -->
+          <button
+            class="btn-fullscreen"
+            id="btn-fullscreen"
+            onclick="abrirPantallaCompleta()"
+            title="Ver en pantalla completa"
+          >
+            ⛶
+          </button>
+
+          <div class="visor-placeholder" id="placeholder">
+            <div>
+              <h3 style="color: #0a2a43; margin-bottom: 10px">
+                📁 Visor de Archivos
+              </h3>
+              <p>Selecciona un archivo para visualizarlo</p>
+              <small style="color: #666">Visualiza: PDF y HTML solamente</small>
+            </div>
+          </div>
+          <iframe id="visor"></iframe>
+        </div>
+      </div>
+    </main>
+
+    <!-- MODAL PANTALLA COMPLETA - NUEVO -->
+    <div id="modal-fullscreen" class="modal-fullscreen">
+      <div class="modal-content">
+        <button
+          class="modal-close"
+          onclick="cerrarPantallaCompleta()"
+          title="Cerrar (ESC)"
+        >
+          ✕
+        </button>
+        <iframe id="modal-iframe" class="modal-iframe" src=""></iframe>
+      </div>
     </div>
 
     <!-- Footer -->
