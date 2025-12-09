@@ -3,6 +3,9 @@
 # VS Code
 .vscode/
 
+# Claude
+.claude/
+
 # Environment variables
 .env
 .env.local
