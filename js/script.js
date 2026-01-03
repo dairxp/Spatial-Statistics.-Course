@@ -95,16 +95,36 @@ function verArchivo(ruta, tipo) {
     placeholder.style.display = "none";
     visor.style.display = "block";
 
+    // Codificar la ruta para manejar espacios y caracteres especiales
+    const rutaCodificada = encodeURI(ruta);
+
     if (tipo === "pdf") {
-      // MEJOR: Usar pagemode=none para Firefox
-      visor.src = ruta + "#pagemode=none&toolbar=1";
+      // Para PDFs: usar viewer embebido del navegador
+      visor.src = rutaCodificada + "#toolbar=1&navpanes=0&scrollbar=1";
     } else {
-      visor.src = ruta;
+      visor.src = rutaCodificada;
     }
 
-    pdfActual = ruta;
+    pdfActual = rutaCodificada;
     visorContainer.classList.add("con-pdf");
     btnFullscreen.style.display = "block";
+
+    // Manejar errores de carga
+    visor.onerror = function () {
+      placeholder.style.display = "block";
+      visor.style.display = "none";
+      placeholder.innerHTML = `
+        <div style="color: #e74c3c;">
+          <h3>⚠️ Error al cargar el archivo</h3>
+          <p>No se pudo cargar: ${ruta}</p>
+          <small>Intenta abrir el archivo directamente o verifica que existe.</small>
+          <br><br>
+          <a href="${rutaCodificada}" target="_blank" style="color: #3498db; text-decoration: underline;">
+            Abrir en nueva pestaña
+          </a>
+        </div>
+      `;
+    };
   }
 }
 

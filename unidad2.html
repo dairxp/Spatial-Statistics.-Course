@@ -69,46 +69,54 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Tarea 1 -->
+                <!-- QGIS -->
                 <tr>
-                  <td><strong>1. Tarea 1 Unidad 2</strong></td>
+                  <td><strong>8. QGIS Conectividad Puno</strong></td>
                   <td>
                     <div class="acciones-grupos">
                       <!-- Grupo Ver -->
                       <div class="grupo-ver">
-                        <h4>Ver</h4>
+                        <!-- <h4>Ver</h4> -->
                         <button
                           class="btn-pdf"
-                          onclick="verArchivo('#', 'pdf')"
+                          onclick="verArchivo('./8. Qgis/1Puno-Conectividad-mapa_calor_puno.pdf', 'pdf')"
                         >
                           PDF
                         </button>
+                        <!-- <button
+                          class="btn-pdf"
+                          onclick="verArchivo('./3. CampoGausianos/CampoGausiano_animales.html', 'pdf')"
+                        >
+                          Html_v1
+                        </button> -->
                       </div>
 
                       <!-- Grupo Descargar -->
                       <div class="grupo-descargar">
-                        <h4>Descargar Código</h4>
-                        <button
+                        <!-- <h4>Descargar Código</h4> -->
+                        <!-- <button
                           class="btn-code"
-                          onclick="descargarArchivo('#')"
+                          onclick="descargarArchivo('./3. CampoGausianos/CampoGausiano_animales.R')"
                         >
                           R
-                        </button>
+                        </button> -->
                       </div>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Tarea 2 -->
+                <!-- Tarea 9 -->
                 <tr>
-                  <td><strong>2. Tarea 2 Unidad 2</strong></td>
+                  <td>
+                    <strong>9. Representación Problemática Nacional</strong>
+                  </td>
                   <td>
                     <div class="acciones-grupos">
                       <!-- Grupo Ver -->
                       <div class="grupo-ver">
                         <button
                           class="btn-pdf"
-                          onclick="verArchivo('#', 'pdf')"
+                          onclick="verArchivo('./8. Qgis/2 Representación Problemática Nacional Proyecto_Inversion_Completo_Aldair.pdf', 'pdf')"
                         >
                           PDF
                         </button>
@@ -116,27 +124,27 @@
 
                       <!-- Grupo Descargar -->
                       <div class="grupo-descargar">
-                        <button
-                          class="btn-code"
-                          onclick="descargarArchivo('#')"
-                        >
-                          R
-                        </button>
+                        <!-- Sin archivos de código -->
                       </div>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Tarea 3 -->
+                <!-- Tarea 10 -->
                 <tr>
-                  <td><strong>3. Tarea 3 Unidad 2</strong></td>
+                  <td>
+                    <strong
+                      >10. Shapes to Google Earth - Cobertura
+                      Telecomunicaciones</strong
+                    >
+                  </td>
                   <td>
                     <div class="acciones-grupos">
                       <!-- Grupo Ver -->
                       <div class="grupo-ver">
                         <button
                           class="btn-pdf"
-                          onclick="verArchivo('#', 'pdf')"
+                          onclick="verArchivo('./8. Qgis/3 Shapes to Google Earth-Cobertura_de_telecomunicaciones_Puno.pdf', 'pdf')"
                         >
                           PDF
                         </button>
@@ -144,27 +152,28 @@
 
                       <!-- Grupo Descargar -->
                       <div class="grupo-descargar">
-                        <button
-                          class="btn-code"
-                          onclick="descargarArchivo('#')"
+                        <a
+                          href="https://earth.google.com/earth/d/11M5Kp0iGKiIOZGjBdEcHHByTc-ObY0Am?usp=sharing"
+                          target="_blank"
+                          class="btn-link"
                         >
-                          R
-                        </button>
+                          Google Earth
+                        </a>
                       </div>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Tarea 4 -->
+                <!-- Tarea 11 -->
                 <tr>
-                  <td><strong>4. Tarea 4 Unidad 2</strong></td>
+                  <td><strong>11. Aplicación Google Earth Engine</strong></td>
                   <td>
                     <div class="acciones-grupos">
                       <!-- Grupo Ver -->
                       <div class="grupo-ver">
                         <button
                           class="btn-pdf"
-                          onclick="verArchivo('#', 'pdf')"
+                          onclick="verArchivo('./8. Qgis/4 Applicacion_Google_Earth_Engine.pdf', 'pdf')"
                         >
                           PDF
                         </button>
@@ -172,12 +181,36 @@
 
                       <!-- Grupo Descargar -->
                       <div class="grupo-descargar">
-                        <button
-                          class="btn-code"
-                          onclick="descargarArchivo('#')"
+                        <a
+                          href="https://my-maps-481318.projects.earthengine.app/view/geo-inversion-pe-dairxp"
+                          target="_blank"
+                          class="btn-link"
                         >
-                          R
+                          Earth Engine
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Tarea 12 -->
+                <tr>
+                  <td><strong>12. Artículo - Earth V3 CAS</strong></td>
+                  <td>
+                    <div class="acciones-grupos">
+                      <!-- Grupo Ver -->
+                      <div class="grupo-ver">
+                        <button
+                          class="btn-pdf"
+                          onclick="verArchivo('./9. Articulo__EEv2/5 Articulo_S2_EarthV3_CAS.pdf', 'pdf')"
+                        >
+                          PDF
                         </button>
+                      </div>
+
+                      <!-- Grupo Descargar -->
+                      <div class="grupo-descargar">
+                        <!-- Sin archivos de código -->
                       </div>
                     </div>
                   </td>
@@ -208,7 +241,7 @@
               <small style="color: #666">Visualiza: PDF y HTML solamente</small>
             </div>
           </div>
-          <iframe id="visor"></iframe>
+          <iframe id="visor" allow="fullscreen"></iframe>
         </div>
       </div>
     </main>
@@ -268,25 +301,6 @@
         </a>
       </p>
     </footer>
-
-    <script>
-      // Menú hamburguesa
-      const menuToggle = document.getElementById("menu-toggle");
-      const navLinks = document.getElementById("nav-links");
-
-      if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", function () {
-          navLinks.classList.toggle("show");
-        });
-
-        // Cerrar menú al hacer clic en enlaces
-        navLinks.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            navLinks.classList.remove("show");
-          });
-        });
-      }
-    </script>
 
     <!-- Archivo externo -->
     <script src="js/script.js"></script>
